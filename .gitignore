@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build directories
+build/
+dist/
+*.spec
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config files
+config.ini
+config.json
+*.log
+
+# Virtual environments
+venv/
+env/
+*.venv/
+
+# Windows
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+*.dylib
