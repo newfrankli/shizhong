@@ -1,0 +1,61 @@
+﻿<Window x:Class="WeatherClock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WeatherClock" 
+        Height="Auto" Width="Auto"
+        SizeToContent="WidthAndHeight"
+        WindowStyle="None" 
+        AllowsTransparency="True" 
+        Background="Transparent"
+        ShowInTaskbar="False"
+        Topmost="False"
+        MouseDown="Window_MouseDown"
+        MouseMove="Window_MouseMove"
+        MouseUp="Window_MouseUp"
+        Loaded="Window_Loaded">
+
+    <Grid Name="RootGrid" RenderTransformOrigin="0.5,0.5">
+        <!-- 使用 LayoutTransform 确保缩放时 Window 尺寸会自动适应 -->
+        <Grid.LayoutTransform>
+            <ScaleTransform x:Name="RootScale" ScaleX="1.0" ScaleY="1.0"/>
+        </Grid.LayoutTransform>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+            <!-- 时间 -->
+            <TextBlock Name="TimeText" Text="00:00" FontSize="60" FontWeight="Bold" 
+                       Foreground="White" HorizontalAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="2" Opacity="0.8"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <!-- 日期 -->
+            <TextBlock Name="DateText" Text="Loading..." FontSize="20" 
+                       Foreground="White" HorizontalAlignment="Center">
+                <TextBlock.Effect>
+                    <DropShadowEffect Color="Black" BlurRadius="3" ShadowDepth="1" Opacity="0.8"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <!-- 天气行 -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10,0,0">
+                <TextBlock Name="LocationText" Text="位置" FontSize="16" Foreground="White" Margin="0,0,10,0">
+                     <TextBlock.Effect>
+                        <DropShadowEffect Color="Black" BlurRadius="2" ShadowDepth="1" Opacity="0.8"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <!-- 点击图标刷新 -->
+                <TextBlock Name="WeatherIcon" Text="☀" FontSize="24" Foreground="White" Margin="0,0,10,0" Cursor="Hand" MouseLeftButtonDown="RefreshWeather_Click">
+                     <TextBlock.Effect>
+                        <DropShadowEffect Color="Black" BlurRadius="2" ShadowDepth="1" Opacity="0.8"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+                <TextBlock Name="TempText" Text="--°C" FontSize="18" Foreground="White">
+                     <TextBlock.Effect>
+                        <DropShadowEffect Color="Black" BlurRadius="2" ShadowDepth="1" Opacity="0.8"/>
+                    </TextBlock.Effect>
+                </TextBlock>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
